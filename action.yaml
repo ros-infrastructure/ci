@@ -1,6 +1,6 @@
 ---
-name: colcon pytest
-description: Continuous integration for colcon repositories
+name: ros-infrastructure pytest
+description: Continuous integration for ros-infrastructure repositories
 runs:
   using: composite
   steps:
@@ -20,8 +20,10 @@ runs:
         echo ::group::Install dependencies
         # Install dependencies, including any 'test' extras
         python -m pip install -U -e .[test]
-        # Install pytest-cov and use HEAD for any colcon packages
-        python -m pip freeze | { grep ^colcon || :; } | sed 's|\(.*\)==.*|git+https://github.com/colcon/\1.git|g' | xargs python -m pip install -U pytest-cov
+        # Install pytest-cov
+        python -m pip install -U pytest-cov
+        # Use HEAD for any ros-infrastructure packages
+        python -m pip freeze | { grep ^(bloom|catkin_pkg|ros_buildfarm|rosdep|rosdistro|rospkg|bloom) || :; } | sed 's|\(.*\)==.*|git+https://github.com/ros-infrastructure/\1.git|g' | xargs python -m pip install -U
         echo ::endgroup::
 
         echo ::group::Run tests
@@ -32,12 +34,12 @@ runs:
         # Run publish-python without uploading the results
         if [ -f publish-python.yaml ]; then
           PUBLISH_PYTHON=$(mktemp -d)
-          git clone https://github.com/dirk-thomas/publish-python.git $PUBLISH_PYTHON
+          git clone https://github.com/ros-infrastructure/ros_release_python.git $PUBLISH_PYTHON
           python -m pip install -U PyYAML wheel
-          python $PUBLISH_PYTHON/bin/publish-python wheel:pypi
+          python $PUBLISH_PYTHON/scripts/ros_release_python pip
           if [ -f /etc/debian_version ]; then
-            sudo apt install -y debhelper dh-python fakeroot python3-all python3-stdeb python3-yaml
-            DEB_BUILD_OPTIONS=nocheck /usr/bin/python3 $PUBLISH_PYTHON/bin/publish-python stdeb:packagecloud
+            sudo apt install -y apt-file debhelper dh-python fakeroot python-setuptools python3-setuptools python-all python3-all python3-stdeb python3-yaml
+            DEB_BUILD_OPTIONS=nocheck /usr/bin/python3 $PUBLISH_PYTHON/scripts/ros_release_python deb2 deb3
           else
             echo "Skipping stdeb test on non-Debian platform..."
           fi
