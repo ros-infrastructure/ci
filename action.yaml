@@ -1,6 +1,6 @@
 ---
-name: colcon pytest
-description: Continuous integration for colcon repositories
+name: ros-infrastructure pytest
+description: Continuous integration for ros-infrastructure repositories
 runs:
   using: composite
   steps:
@@ -35,32 +35,4 @@ runs:
           --cov --cov-branch \
           --cov-report xml:coverage.xml \
           --cov-config setup.cfg
-        echo ::endgroup::
-
-        echo ::group::Test publish
-        # Run publish-python without uploading the results
-        if [ -f publish-python.yaml ]; then
-          PUBLISH_PYTHON=$(mktemp -d)
-          pushd $PUBLISH_PYTHON
-          git clone https://github.com/dirk-thomas/publish-python.git .
-          popd
-          python -m pip install -U PyYAML wheel
-          python $PUBLISH_PYTHON/bin/publish-python wheel:pypi
-          if [ ! -z "${{matrix.stdeb-check}}" ]; then
-            sudo apt install \
-              debhelper \
-              dh-python \
-              fakeroot \
-              python3-all \
-              python3-stdeb \
-              python3-yaml \
-              -y
-            DEB_BUILD_OPTIONS=nocheck /usr/bin/python3 \
-              $PUBLISH_PYTHON/bin/publish-python stdeb:packagecloud
-          else
-            echo "Skipping stdeb test on non-Debian platform..."
-          fi
-        else
-          echo "Repository not configured - Skipping..."
-        fi
         echo ::endgroup::

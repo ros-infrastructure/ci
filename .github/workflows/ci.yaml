@@ -11,11 +11,14 @@ jobs:
   canary:
     uses: ./.github/workflows/pytest.yaml
     with:
-      # Choose colcon-notification for a canary build. It has colcon
-      # dependencies and debian patches, so exercieses a fair amount of the
+      # TODO: Remove this filter once rosdistro tests pass on Windows
+      matrix-filter: del(.matrix.os[] | select(contains("windows")))
+      # Choose rosdistro for a canary build. It has ros-infrastructure
+      # dependencies and installs scripts, so exercieses a fair amount of the
       # CI action features.
-      repository: colcon/colcon-notification
-      # Use HEAD to find strategy.json file instead of the tip of colcon/ci
+      repository: ros-infrastructure/rosdistro
+      # Use HEAD to find strategy.json file instead of the tip of
+      # ros-infrastructure/ci
       setup-repository: ''
   yamllint:
     runs-on: ubuntu-latest

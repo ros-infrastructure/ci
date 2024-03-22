@@ -22,7 +22,7 @@ on:  # yamllint disable-line rule:truthy
         type: string
       setup-repository:
         description: 'repository used during job setup'
-        default: 'colcon/ci'
+        default: 'ros-infrastructure/ci'
         required: false
         type: string
 
