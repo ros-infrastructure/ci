@@ -25,6 +25,10 @@ on:  # yamllint disable-line rule:truthy
         default: 'ros-infrastructure/ci'
         required: false
         type: string
+    secrets:
+      CODECOV_TOKEN:
+        description: 'token to use when running codecov action after testing'
+        required: false
 
 jobs:
   setup:
@@ -59,3 +63,7 @@ jobs:
       - uses: ./.github-ci-action-repo
       - uses: codecov/codecov-action@v3
         if: ${{ inputs.codecov }}
+      - uses: codecov/codecov-action@v4
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        if: ${{ env.CODECOV_TOKEN != '' }}
