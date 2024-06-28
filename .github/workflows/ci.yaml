@@ -11,8 +11,6 @@ jobs:
   canary:
     uses: ./.github/workflows/pytest.yaml
     with:
-      # TODO: Remove this filter once rosdistro tests pass on Windows
-      matrix-filter: del(.matrix.os[] | select(contains("windows")))
       # Choose rosdistro for a canary build. It has ros-infrastructure
       # dependencies and installs scripts, so exercieses a fair amount of the
       # CI action features.
