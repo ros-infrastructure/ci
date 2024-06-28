@@ -6,7 +6,7 @@ on:  # yamllint disable-line rule:truthy
     inputs:
       codecov:
         description: 'run codecov action after testing'
-        default: false
+        default: true
         required: false
         type: boolean
       matrix-filter:
@@ -61,9 +61,7 @@ jobs:
           repository: ${{ inputs.setup-repository }}
           path: ./.github-ci-action-repo
       - uses: ./.github-ci-action-repo
-      - uses: codecov/codecov-action@v3
-        if: ${{ inputs.codecov }}
       - uses: codecov/codecov-action@v4
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        if: ${{ env.CODECOV_TOKEN != '' }}
+        if: ${{ inputs.codecov }}

@@ -14,6 +14,7 @@ jobs:
       # Choose rosdistro for a canary build. It has ros-infrastructure
       # dependencies and installs scripts, so exercieses a fair amount of the
       # CI action features.
+      codecov: false
       repository: ros-infrastructure/rosdistro
       # Use HEAD to find strategy.json file instead of the tip of
       # ros-infrastructure/ci
