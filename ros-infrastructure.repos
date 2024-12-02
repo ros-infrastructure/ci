@@ -5,7 +5,7 @@ repositories:
     type: git
     url: https://github.com/ros-infrastructure/bloom.git
     version: master
-  catkin-pkg:
+  catkin_pkg:
     type: git
     url: https://github.com/ros-infrastructure/catkin_pkg.git
     version: master
@@ -13,7 +13,7 @@ repositories:
     type: git
     url: https://github.com/ros-infrastructure/catkin-sphinx.git
     version: master
-  ros-buildfarm:
+  ros_buildfarm:
     type: git
     url: https://github.com/ros-infrastructure/ros_buildfarm.git
     version: master
@@ -29,7 +29,7 @@ repositories:
     type: git
     url: https://github.com/ros-infrastructure/rosdoc2.git
     version: main
-  rosinstall-generator:
+  rosinstall_generator:
     type: git
     url: https://github.com/ros-infrastructure/rosinstall_generator.git
     version: master
