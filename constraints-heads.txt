@@ -1,3 +1,4 @@
+# Should mirror ros-infrastructure.repos
 bloom@ git+https://github.com/ros-infrastructure/bloom.git
 catkin-pkg@ git+https://github.com/ros-infrastructure/catkin_pkg.git
 catkin-sphinx@ git+https://github.com/ros-infrastructure/catkin-sphinx.git

@@ -1,0 +1,43 @@
+---
+# Should mirror constraints-heads.txt
+repositories:
+  bloom:
+    type: git
+    url: https://github.com/ros-infrastructure/bloom.git
+    version: master
+  catkin-pkg:
+    type: git
+    url: https://github.com/ros-infrastructure/catkin_pkg.git
+    version: master
+  catkin-sphinx:
+    type: git
+    url: https://github.com/ros-infrastructure/catkin-sphinx.git
+    version: master
+  ros-buildfarm:
+    type: git
+    url: https://github.com/ros-infrastructure/ros_buildfarm.git
+    version: master
+  rosdep:
+    type: git
+    url: https://github.com/ros-infrastructure/rosdep.git
+    version: master
+  rosdistro:
+    type: git
+    url: https://github.com/ros-infrastructure/rosdistro.git
+    version: master
+  rosdoc2:
+    type: git
+    url: https://github.com/ros-infrastructure/rosdoc2.git
+    version: main
+  rosinstall-generator:
+    type: git
+    url: https://github.com/ros-infrastructure/rosinstall_generator.git
+    version: master
+  rospkg:
+    type: git
+    url: https://github.com/ros-infrastructure/rospkg.git
+    version: master
+  superflore:
+    type: git
+    url: https://github.com/ros-infrastructure/superflore.git
+    version: master
