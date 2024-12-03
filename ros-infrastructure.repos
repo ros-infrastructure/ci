@@ -13,6 +13,18 @@ repositories:
     type: git
     url: https://github.com/ros-infrastructure/catkin-sphinx.git
     version: master
+  createrepo-agent:
+    type: git
+    url: https://github.com/osrf/createrepo-agent.git
+    version: main
+  osrf_pycommon:
+    type: git
+    url: https://github.com/osrf/osrf_pycommon.git
+    version: master
+  rocker:
+    type: git
+    url: https://github.com/osrf/rocker.git
+    version: main
   ros_buildfarm:
     type: git
     url: https://github.com/ros-infrastructure/ros_buildfarm.git
@@ -40,4 +52,8 @@ repositories:
   superflore:
     type: git
     url: https://github.com/ros-infrastructure/superflore.git
+    version: master
+  vcstool:
+    type: git
+    url: https://github.com/dirk-thomas/vcstool.git
     version: master
