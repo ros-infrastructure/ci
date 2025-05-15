@@ -1,12 +1,6 @@
 {
   "matrix": {
     "os": ["macos-latest", "ubuntu-latest", "windows-latest"],
-    "python": ["3.8", "3.9", "3.10", "3.11", "3.12"],
-    "include": [
-      {
-        "os": "ubuntu-20.04",
-        "python": "3.6"
-      }
-    ]
+    "python": ["3.8", "3.9", "3.10", "3.11", "3.12"]
   }
 }
