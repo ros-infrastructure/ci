@@ -2,10 +2,15 @@
 bloom@ git+https://github.com/ros-infrastructure/bloom.git
 catkin-pkg@ git+https://github.com/ros-infrastructure/catkin_pkg.git
 catkin-sphinx@ git+https://github.com/ros-infrastructure/catkin-sphinx.git
+createrepo-agent@ git+https://github.com/osrf/createrepo-agent.git
+osrf-pycommon@ git+https://github.com/osrf/osrf_pycommon.git
+rocker@ git+https://github.com/osrf/rocker.git
 ros-buildfarm@ git+https://github.com/ros-infrastructure/ros_buildfarm.git
 rosdep@ git+https://github.com/ros-infrastructure/rosdep.git
 rosdistro@ git+https://github.com/ros-infrastructure/rosdistro.git
+rosdistro-reviewer@ git+https://github.com/ros-infrastructure/rosdistro-reviewer.git
 rosdoc2@ git+https://github.com/ros-infrastructure/rosdoc2.git
 rosinstall-generator@ git+https://github.com/ros-infrastructure/rosinstall_generator.git
 rospkg@ git+https://github.com/ros-infrastructure/rospkg.git
 superflore@ git+https://github.com/ros-infrastructure/superflore.git
+vcs2l@ git+https://github.com/ros-infrastructure/vcs2l.git
