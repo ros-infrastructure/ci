@@ -61,7 +61,7 @@ jobs:
           repository: ${{ inputs.setup-repository }}
           path: ./.github-ci-action-repo
       - uses: ./.github-ci-action-repo
-      - uses: codecov/codecov-action@v4
+      - uses: codecov/codecov-action@v5
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         if: ${{ inputs.codecov }}
